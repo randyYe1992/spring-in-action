@@ -1,5 +1,6 @@
 package com.randy.charpter4.charpter4p2;
 
+import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.*;
 import org.springframework.stereotype.Component;
 
@@ -30,5 +31,16 @@ public class Audience {
     @AfterThrowing("mark()")
     public void refundTicketMoney() {
         System.out.println("audiences refund ticket money");
+    }
+
+    @Around("execution(* com.randy.charpter4.charpter4p2.Performance.surroundingPlay(..))")
+    public void surrounding(ProceedingJoinPoint proceedingJoinPoint) {
+        try {
+            System.out.println("surrounding before");
+            proceedingJoinPoint.proceed();
+            System.out.println("surrounding after");
+        } catch (Throwable throwable) {
+            System.out.println(" surrouding exception");
+        }
     }
 }

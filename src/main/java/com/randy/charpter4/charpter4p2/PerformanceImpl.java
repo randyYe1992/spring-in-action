@@ -13,4 +13,10 @@ public class PerformanceImpl implements Performance {
         System.out.println("i am playing piano");
         //   throw new RuntimeException();
     }
+
+    @Override
+    public void surroundingPlay() {
+        System.out.println("i am test surroundingPlay ");
+        throw new RuntimeException();
+    }
 }

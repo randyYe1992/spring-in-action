@@ -25,4 +25,9 @@ public class AudienceTest {
     public void testAudience() {
         audience.clapHands();
     }
+
+    @Test
+    public void testSurroundingPlay() {
+        performance.surroundingPlay();
+    }
 }
