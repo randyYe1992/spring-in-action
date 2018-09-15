@@ -16,6 +16,11 @@ public class AudienceTest {
     @Qualifier("performance")
     private Performance performance;
 
+    @Autowired
+    private BlankDisc blankDisc;
+    @Autowired
+    private TrackCounter trackCounter;
+
     @Test
     public void testPerformance() {
         performance.play();
@@ -29,5 +34,20 @@ public class AudienceTest {
     @Test
     public void testSurroundingPlay() {
         performance.surroundingPlay();
+    }
+
+    @Test
+    public void testBlankDiscArgs() {
+        blankDisc.play(3);
+        blankDisc.play(3);
+        blankDisc.play(3);
+        blankDisc.play(3);
+        blankDisc.play(3);
+        System.out.println(trackCounter.getPlayCounts(3));
+    }
+
+    @Test
+    public void testBlankDiscNoArgs() {
+        blankDisc.play();
     }
 }
